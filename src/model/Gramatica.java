@@ -19,11 +19,16 @@ public class Gramatica {
     public List<String> terminais;
     public List<Producao> producao;
     
-
+    public List<String> maiorPrecendia;
+    public List<String> menorPrecendia;
+    
     public Gramatica() {
         this.naoTerminais = new LinkedList<String>();
         this.terminais = new LinkedList<String>();
         this.producao = new LinkedList<Producao>();
+        
+        this.maiorPrecendia = new LinkedList<String>();
+        this.menorPrecendia = new LinkedList<String>();
        
     }
 
@@ -54,6 +59,7 @@ public class Gramatica {
         Producao aux;
         for (Producao p : producao) {
             if(p.simbolo.equals(s)){
+                
                 return p;
             }
         }        

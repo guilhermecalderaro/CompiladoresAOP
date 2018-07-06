@@ -48,10 +48,14 @@ public class Tela extends javax.swing.JFrame {
         jTextFieldT = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablePU = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextAreaPU = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +64,7 @@ public class Tela extends javax.swing.JFrame {
 
         jTextAreaG.setColumns(20);
         jTextAreaG.setRows(5);
-        jTextAreaG.setText("E : E/T T\nT : T&F F\nF : (E) id");
+        jTextAreaG.setText("E : E+T T \nT : T*F F \nF : P^F P \nP : (E) id");
         jScrollPane1.setViewportView(jTextAreaG);
 
         jLabel2.setText("Não-Terminais");
@@ -117,40 +121,13 @@ public class Tela extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Gramática", jPanel1);
-
-        jTablePU.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "SIMBOLO", "PRIMEIROS", "ÚLTIMOS"
-            }
-        ));
-        jScrollPane2.setViewportView(jTablePU);
-        if (jTablePU.getColumnModel().getColumnCount() > 0) {
-            jTablePU.getColumnModel().getColumn(0).setResizable(false);
-            jTablePU.getColumnModel().getColumn(2).setResizable(false);
-        }
 
         jButton2.setText("PRIMEIROS E ÚLTIMOS");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +136,11 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaPU.setColumns(20);
+        jTextAreaPU.setRows(5);
+        jTextAreaPU.setText("E : + * ^ id ( , + * ^ id ) \nT : * ^ id ( , * ^ id ) \nF : ^ id ( , ^ id ) \nP : id ( , id )");
+        jScrollPane3.setViewportView(jTextAreaPU);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -166,29 +148,60 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Primeiros e Últimos", jPanel2);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jButton3.setText("Busca menor e maior");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Tabela");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("tab3", jPanel3);
@@ -201,7 +214,7 @@ public class Tela extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 285, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab4", jPanel4);
@@ -264,9 +277,7 @@ public class Tela extends javax.swing.JFrame {
         
         g.imprime();
         
-        for(int i=0; i < g.naoTerminais.size(); i++){
-            jTablePU.getModel().setValueAt(g.naoTerminais.get(i), i, 0);
-        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -277,25 +288,79 @@ public class Tela extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        System.out.println(g.producao.size());
+        String[] linhas = jTextAreaPU.getText().split("\n");
         
-        for (int i = 0; i < g.producao.size()+1; i++) { //g.producao.size()
+        for (String linha : linhas) {
             
-            String aux = (String) jTablePU.getModel().getValueAt(i, 1);
-            String[] aux2 = aux.split(" ");
-            //System.out.println(jTablePU.getModel().getValueAt(i, 1));
+            String[] gra = linha.split(":");
+//            System.out.println("gra 0 :" + gra[0].trim() + "|");
+//            System.out.println("gra 1 :" + gra[1].trim());
+                   
+            Producao simb = g.find(gra[0].trim());
+                        
+            String[] aux = gra[1].trim().split(",");
             
-            for (String string : aux2) {
-                //g.producao.get(i).primeiros.add(string);
-                System.out.println(string);
+//            System.out.println("aux 0 :" + aux[0].trim());
+//            System.out.println("aux 1 :" + aux[1].trim());
+            
+            String[] pri = aux[0].trim().split(" ");
+            String[] ult = aux[1].trim().split(" ");
+            
+            for (String s : pri){ 
+                simb.primeiros.add(s);
             }
             
-            //System.out.println(g.producao.get(i).primeiros);
+            for (String s : ult){ 
+                simb.ultimos.add(s);
+            }
             
+            System.out.println(simb.simbolo + simb.primeiros + simb.ultimos);
+            
+            
+        }
+        
+        //Maior e menor precedencia
+        
+        String regexMaiorP  = "[A-Z]([+*^()/&]|[a-z]+)";
+        String regexMenorP  = "([+*^()/&]|[a-z]+)[A-Z]";
+        
+        Pattern patternMaiorP = Pattern.compile(regexMaiorP);
+        Pattern patternMenorP = Pattern.compile(regexMenorP);
+        
+        Matcher matcherMaiorP = patternMaiorP.matcher(jTextAreaG.getText());
+        Matcher matcherMenorP = patternMenorP.matcher(jTextAreaG.getText());
+        // E+
+        // 01
+        while(matcherMaiorP.find()){
+            String simb = matcherMaiorP.group().charAt(0) + "";
+            String op = matcherMaiorP.group().charAt(1) + "";
+            System.out.print("Maior precedencia " + simb + op + " : ");
+            for (String s : g.find(simb).ultimos) {
+                System.out.print(s + " > " + op + " | ");
+            }
+            System.out.println("");
+        }
+        
+        System.out.println("");
+                
+        while(matcherMenorP.find()){
+            String simb = matcherMenorP.group().charAt(1) + "";
+            String op = matcherMenorP.group().charAt(0) + "";
+            System.out.print("Menor precedencia " + op + simb + " : ");
+            for (String s : g.find(simb).primeiros) {
+                System.out.print(op + " < " + s + " | ");
+            }
+            System.out.println("");
         }
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,6 +400,8 @@ public class Tela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -343,10 +410,12 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTablePU;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextAreaG;
+    private javax.swing.JTextArea jTextAreaPU;
     private javax.swing.JTextField jTextFieldNT;
     private javax.swing.JTextField jTextFieldT;
     // End of variables declaration//GEN-END:variables

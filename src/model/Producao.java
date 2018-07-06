@@ -21,11 +21,15 @@ public class Producao {
     public Producao() {
         this.simbolo = "";
         this.prod = new LinkedList<String>();
+        this.primeiros = new LinkedList<String>();
+        this.ultimos = new LinkedList<String>();
     }
 
     public Producao(String simbolo) {
         this.simbolo = simbolo;
         this.prod = new LinkedList<String>();        
+        this.primeiros = new LinkedList<String>();        
+        this.ultimos = new LinkedList<String>();        
     }
     
     public void addProd(String s){
